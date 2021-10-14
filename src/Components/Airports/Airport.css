@@ -1,0 +1,13 @@
+.Airport-Title {
+  font-weight: 700 !important;
+  text-transform: uppercase;
+}
+
+.Airport-Detail {
+  border-radius: 3px !important;
+}
+
+.AirportKey h6 {
+  font-weight: 700 !important;
+  text-transform: uppercase;
+}

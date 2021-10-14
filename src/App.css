@@ -1,0 +1,48 @@
+.App {
+  position: relative;
+}
+
+main {
+  position: absolute;
+  width: calc(100% - 220px);
+  height: 100vh;
+  min-width: calc(100% - 220px);
+  right: 0;
+  padding: 50px;
+  overflow: scroll;
+}
+
+.Center {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 800px !important;
+}
+
+.blue-btn {
+  background-color: #cfd5da !important;
+  border-color: #cfd5da !important;
+  color: #000 !important;
+  font-weight: 500 !important;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.btn-primary.disabled {
+  background-color: unset !important;
+}
+
+.page-arrow {
+  pointer-events: none;
+}
+
+img,
+svg {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none !important;
+  color: #000 !important;
+}
