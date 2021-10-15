@@ -1,7 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import UserContext from '../../Context/UserContext';
 import { Row, Col, Spinner, Card, Button } from 'react-bootstrap';
-import { IoAirplane } from 'react-icons/io5';
 import uuid from 'react-uuid';
 
 const Favorites = () => {
@@ -45,17 +44,22 @@ const Favorites = () => {
     <Row>
       <Col>
         {favorites.map((favorite) => (
-          <Card key={uuid()} className='Favortie'>
-            <Card.Header>No. {favorite['flightNum'] ?? 'N/A'}</Card.Header>
+          <Card key={uuid()} className='Favorite mb-4'>
+            <Card.Header>{favorite.eventName}</Card.Header>
             <Card.Body>
-              <Card.Title>
-                Flight Date: {favorite['flightDate'] ?? 'N/A'}
-              </Card.Title>
               <Card.Text>
-                Departure: {favorite['departureAirport'] ?? 'N/A'}
-                <IoAirplane /> Arrival: {favorite['arrivalAirport'] ?? 'N/A'}
+                <div className='card-time'>
+                  <b>{favorite.eventDate}</b>
+                </div>
+                {favorite.eventAddress}
+                <br />
+                {favorite.eventExtendedAddress}
               </Card.Text>
-              <Button variant='primary'>Go somewhere</Button>
+              <a href={favorite.url} rel='noreferrer' target='_blank'>
+                <Button className='blue-btn' variant='primary'>
+                  Buy Tickets
+                </Button>
+              </a>
             </Card.Body>
           </Card>
         ))}

@@ -10,31 +10,30 @@ import {
   Alert,
 } from 'react-bootstrap';
 import UserContext from '../../Context/UserContext';
+import PerformerItem from './PerformerItem';
 import EventsFinderApi from '../../API/api';
-import EventItem from './EventItem';
 import uuid from 'react-uuid';
 
-const Events = () => {
+const Performers = () => {
   const formInitalState = {
     search: '',
   };
   const { user } = useContext(UserContext);
   const [page, setPage] = useState(1);
   const [formData, setFormData] = useState(formInitalState);
-  const [events, setEvents] = useState([]);
+  const [performers, setPerformers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState([]);
-  const [hasEvents, setHasEvents] = useState(false);
+  const [hasPerformers, setHasPerformers] = useState(false);
 
   useEffect(() => {
-    const getEvents = async () => {
-      const res = await EventsFinderApi.getEvents({ page });
-      setEvents(res);
+    const getPerformers = async () => {
+      const res = await EventsFinderApi.getPerformers({ page });
+      setPerformers(res);
       setLoading(false);
     };
-
-    getEvents();
+    getPerformers();
   }, [page]);
 
   if (loading) {
@@ -59,17 +58,17 @@ const Events = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await EventsFinderApi.getEvents(formData);
+    const res = await EventsFinderApi.getPerformers(formData);
     if (res.error) {
       setError(true);
       setErrorMsg(res.error);
     } else {
-      if (events.length > 0) {
-        setHasEvents(false);
+      if (performers.length > 0) {
+        setHasPerformers(false);
         setFormData(formInitalState);
-        setEvents(res);
+        setPerformers(res);
       } else {
-        setHasEvents(true);
+        setHasPerformers(true);
       }
     }
   };
@@ -86,10 +85,10 @@ const Events = () => {
   };
 
   return (
-    <div className='Events'>
+    <div className='Performers'>
       <header>
-        <h2>Events</h2>
-        <span>Find Events Near You</span>
+        <h2>Performers</h2>
+        <span>See Your Favorite Performers Show</span>
         <hr></hr>
       </header>
       <Container>
@@ -100,7 +99,7 @@ const Events = () => {
               <Col md>
                 <FloatingLabel
                   controlId='floatingInputGrid'
-                  label='Search Events...'
+                  label='Search Performers...'
                 >
                   <Form.Control
                     type='text'
@@ -116,62 +115,55 @@ const Events = () => {
                   className='h-100 w-100 blue-btn'
                   variant='primary'
                 >
-                  Find Events
+                  Find Performer
                 </Button>{' '}
               </Col>
             </Row>
           </Form>
         </div>
       </Container>
-      <Container className='Event-Items'>
-        {hasEvents && (
-          <Alert className='mt-4' variant='warning'>
-            Sorry, no events found! Try Again
-          </Alert>
-        )}
-        <Row xs={1} xl={2}>
-          {events.map((event) => (
-            <Col key={uuid()}>
-              <EventItem event={event} favorites={user.favorites} />
-            </Col>
-          ))}
-        </Row>
-        <Row className='mt-5'>
-          <Col>
-            <div aria-label='pagination'>
-              <ul
-                className='pagination justify-content-center'
-                key={uuid()}
-                onClick={handlePagination}
-              >
-                <Button
-                  disabled={page === 1 ? true : false}
-                  className='page-link'
-                  href='#'
-                  aria-label='Previous'
-                  key={uuid()}
-                >
-                  <span className='page-arrow' aria-hidden='true'>
-                    &laquo;
-                  </span>
-                </Button>
-                <Button
-                  className='page-link'
-                  href='#'
-                  aria-label='Next'
-                  key={uuid()}
-                >
-                  <span className='page-arrow' aria-hidden='true'>
-                    &raquo;
-                  </span>
-                </Button>
-              </ul>
-            </div>
+      <Row xs={1} lg={2} xl={3}>
+        {performers.map((performer) => (
+          <Col key={uuid()}>
+            <PerformerItem performer={performer} favorites={user.favorites} />
           </Col>
-        </Row>
-      </Container>
+        ))}
+      </Row>
+      <Row className='mt-5'>
+        <Col>
+          <div aria-label='pagination'>
+            <ul
+              className='pagination justify-content-center'
+              key={uuid()}
+              onClick={handlePagination}
+            >
+              <Button
+                disabled={page === 1 ? true : false}
+                className='page-link'
+                href='#'
+                aria-label='Previous'
+                key={uuid()}
+              >
+                <span className='page-arrow' aria-hidden='true'>
+                  &laquo;
+                </span>
+              </Button>
+              <Button
+                className='page-link'
+                href='#'
+                aria-label='Next'
+                key={uuid()}
+              >
+                <span className='page-arrow' aria-hidden='true'>
+                  &raquo;
+                </span>
+              </Button>
+            </ul>
+          </div>
+        </Col>
+      </Row>
     </div>
   );
 };
 
-export default Events;
+export default Performers;

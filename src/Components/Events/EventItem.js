@@ -40,6 +40,11 @@ const EventItem = ({ favorites, event }) => {
   const handleFavorites = async (e, event) => {
     const eventData = {
       eventId: event.id,
+      eventName: event.title,
+      eventDate: EventFinderApi.eventTimeConverter(event.datetime_utc),
+      eventAddress: event.venue.address,
+      eventExtendedAddress: event.venue.extended_address,
+      url: event.url,
       uuid: user['uuid'],
     };
     const res = e.target.classList.contains('favorited')
@@ -126,7 +131,7 @@ const EventItem = ({ favorites, event }) => {
       </Card.Body>
       <Card.Footer className='text-muted text-start'>
         <button onClick={handleCommentSection}>Comment</button>
-        <Col className={comment ? `Comment active` : `Comment`} xs={12}>
+        <Col className={comment ? `Comment Active` : `Comment`} xs={12}>
           <Container>
             {error && <Alert variant='danger'>{errorMsg}</Alert>}
             <h6>Comment On Event</h6>

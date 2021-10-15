@@ -59,7 +59,6 @@ class EventFinderApi {
   static async login(formData) {
     try {
       let res = await this.request(`auth/token`, formData, 'post');
-      console.log(res);
       this.token = res.token;
       return { token: res.token, user: res.user };
     } catch (e) {
@@ -73,22 +72,21 @@ class EventFinderApi {
   static async getEvents(param = {}) {
     try {
       let res = await this.request(`events`, param);
-      console.log(res);
       return res;
     } catch (e) {
-      console.error('getting flights failed', e);
+      console.error('getting events failed', e);
       return { error: e };
     }
   }
 
-  /** Get Airplanes */
+  /** Get Performers */
 
-  static async getAirplanes(param = {}) {
+  static async getPerformers(param = {}) {
     try {
-      let res = await this.request('airplanes', param);
+      let res = await this.request('performers', param);
       return res;
     } catch (e) {
-      console.error('getting airplanes failed', e);
+      console.error('getting performers failed', e);
       return { error: e };
     }
   }

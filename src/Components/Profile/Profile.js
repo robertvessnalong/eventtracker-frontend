@@ -22,7 +22,6 @@ const Profile = () => {
           <Tab eventKey='favorites' title='Favorites'>
             <Favorites />
           </Tab>
-          <Tab eventKey='contact' title='Contact'></Tab>
         </Tabs>
       </Container>
     </div>
