@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:3001';
+const BASE_URL = 'https://eventtracker-backend.herokuapp.com';
 
 class EventFinderApi {
   static token;
@@ -9,11 +9,8 @@ class EventFinderApi {
     console.debug('API Call:', endpoint, data, method);
 
     const url = `${BASE_URL}/${endpoint}`;
-    const user = JSON.parse(localStorage.getItem('user'));
     const headers = {
-      Authorization: `Bearer ${
-        EventFinderApi.token ? EventFinderApi.token : user.token
-      }`,
+      Authorization: `Bearer ${EventFinderApi.token}`,
     };
     const params = method === 'get' ? data : {};
 
@@ -83,6 +80,10 @@ class EventFinderApi {
 
   static async getPerformers(param = {}) {
     try {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        this.token = user.token;
+      }
       let res = await this.request('performers', param);
       return res;
     } catch (e) {
@@ -91,14 +92,34 @@ class EventFinderApi {
     }
   }
 
-  /** Get Airports */
+  /** Get Performer */
 
-  static async getAirports(param = {}) {
+  static async getPerformer(param = {}) {
     try {
-      let res = await this.request(`airports`, param);
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        this.token = user.token;
+      }
+      let res = await this.request(`performers/${param.performerId}`, param);
       return res;
     } catch (e) {
-      console.error('getting airports failed', e);
+      console.error('getting performer failed', e);
+      return { error: e };
+    }
+  }
+
+  /** Get Venues */
+
+  static async getVenues(param = {}) {
+    try {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        this.token = user.token;
+      }
+      let res = await this.request(`venues`, param);
+      return res;
+    } catch (e) {
+      console.error('getting venues failed', e);
       return { error: e };
     }
   }
@@ -115,7 +136,7 @@ class EventFinderApi {
     }
   }
 
-  /** Favorite Flight */
+  /** Favorite Event or Performer */
 
   static async favoriteEvent(event) {
     try {
@@ -127,7 +148,7 @@ class EventFinderApi {
     }
   }
 
-  /** Remove Favorite Flight */
+  /** Remove Favorite Event or Performer */
 
   static async removefavorite(flight) {
     try {
@@ -143,6 +164,10 @@ class EventFinderApi {
 
   static async getComments(param = {}) {
     try {
+      const user = JSON.parse(localStorage.getItem('user'));
+      if (user) {
+        this.token = user.token;
+      }
       let res = await this.request(`comments`, param);
       return res;
     } catch (e) {
@@ -158,12 +183,12 @@ class EventFinderApi {
       let res = await this.request(`comments`, commentData, 'post');
       return res;
     } catch (e) {
-      console.error('getting comments failed', e);
+      console.error('adding comment failed', e);
       return { error: e };
     }
   }
 
-  /** Favorite Flight Check */
+  /** Favorite Event Check */
 
   static favoriteCheck(favorites = [], event) {
     const { id } = event;

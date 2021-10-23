@@ -1,9 +1,10 @@
 import { useContext, useState, useEffect } from 'react';
 import UserContext from '../../Context/UserContext';
-import { Row, Col, Spinner, Card, Button } from 'react-bootstrap';
+import { Row, Col, Spinner, Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import uuid from 'react-uuid';
 
-const Favorites = () => {
+const FavoritePerformer = () => {
   const { user } = useContext(UserContext);
   const [favorites, setFavorites] = useState([]);
   const [loading, isLoading] = useState(true);
@@ -11,7 +12,10 @@ const Favorites = () => {
   useEffect(() => {
     const setUserFavorites = () => {
       isLoading(false);
-      setFavorites(user.favorites);
+      const performers = user.favorites.filter(
+        ({ type }) => type === 'performer'
+      );
+      setFavorites(performers);
     };
     if (user.favorites) {
       setUserFavorites();
@@ -34,7 +38,7 @@ const Favorites = () => {
     return (
       <Row>
         <Col>
-          <span>You do not have any favorties yet!</span>
+          <span>You do not have any favorite performers yet!</span>
         </Col>
       </Row>
     );
@@ -45,21 +49,14 @@ const Favorites = () => {
       <Col>
         {favorites.map((favorite) => (
           <Card key={uuid()} className='Favorite mb-4'>
-            <Card.Header>{favorite.eventName}</Card.Header>
-            <Card.Body>
-              <Card.Text>
-                <div className='card-time'>
-                  <b>{favorite.eventDate}</b>
-                </div>
-                {favorite.eventAddress}
-                <br />
-                {favorite.eventExtendedAddress}
-              </Card.Text>
-              <a href={favorite.url} rel='noreferrer' target='_blank'>
-                <Button className='blue-btn' variant='primary'>
-                  Buy Tickets
-                </Button>
-              </a>
+            <Card.Body className='d-flex flex-row justify-content-between align-items-center'>
+              <Card.Text as='div'>{favorite.performerName}</Card.Text>
+              <Link
+                className='blue-btn d-inline'
+                to={`/performers/${favorite.performerId}`}
+              >
+                See Events
+              </Link>
             </Card.Body>
           </Card>
         ))}
@@ -68,4 +65,4 @@ const Favorites = () => {
   );
 };
 
-export default Favorites;
+export default FavoritePerformer;

@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
+import { Redirect } from 'react-router';
 import UserContext from '../../Context/UserContext';
 import { useHistory } from 'react-router-dom';
 
@@ -11,7 +12,7 @@ const Signup = () => {
     password: '',
   };
   const history = useHistory();
-  const { signUp } = useContext(UserContext);
+  const { signUp, loggedIn } = useContext(UserContext);
   const [formData, setFormData] = useState(formInitalState);
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState([]);
@@ -35,6 +36,10 @@ const Signup = () => {
       history.push('/profile');
     }
   };
+
+  if (loggedIn) {
+    return <Redirect to='/profile'></Redirect>;
+  }
 
   return (
     <>

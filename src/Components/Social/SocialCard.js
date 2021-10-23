@@ -1,24 +1,17 @@
-import { useState, useEffect } from 'react';
 import { Card } from 'react-bootstrap';
-import { IoAirplane } from 'react-icons/io5';
-import FlightHubApi from '../../API/api';
 
 const SocialCard = ({ comment }) => {
   return (
     <Card className='Favortie mb-4'>
-      <Card.Header>
-        {' '}
-        {comment.departureAirport ?? 'N/A'}
-        <IoAirplane /> {comment.arrivalAirport ?? 'N/A'}
-      </Card.Header>
+      <Card.Header>{comment.eventName}</Card.Header>
       <Card.Body>
-        <Card.Title className='h3'>{comment.comment}</Card.Title>
-        <Card.Text>
-          - {comment.user.firstName} {comment.user.lastName}
-        </Card.Text>
+        <blockquote className='blockquote'>
+          <p className='mb-0 h6'>{comment.comment}</p>
+          <footer className='blockquote-footer mt-1'>{comment.userName}</footer>
+        </blockquote>
       </Card.Body>
       <Card.Footer className='text-muted'>
-        {FlightHubApi.FlightTimeConverter(comment.createdAt)}
+        {comment.createdAt.slice(0, 10)}
       </Card.Footer>
     </Card>
   );

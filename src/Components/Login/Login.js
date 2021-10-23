@@ -1,11 +1,12 @@
 import { useState, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
 import { Form, Button, Container, Alert } from 'react-bootstrap';
+import { Redirect } from 'react-router';
 import UserContext from '../../Context/UserContext';
 
 const Login = () => {
   const history = useHistory();
-  const { login } = useContext(UserContext);
+  const { login, loggedIn } = useContext(UserContext);
   const formInitalState = {
     email: '',
     password: '',
@@ -33,6 +34,10 @@ const Login = () => {
       history.push('/profile');
     }
   };
+
+  if (loggedIn) {
+    return <Redirect to='/profile'></Redirect>;
+  }
 
   return (
     <>

@@ -7,10 +7,9 @@ import {
   Container,
   Alert,
 } from 'react-bootstrap';
-import { useEffect, useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
-import { MdAirplanemodeActive } from 'react-icons/md';
 import EventsFinderApi from '../../API/api';
 import EventItem from '../Events/EventItem';
 import uuid from 'react-uuid';

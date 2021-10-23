@@ -1,7 +1,7 @@
 import { useContext, useState, useEffect } from 'react';
 import UserContext from '../../Context/UserContext';
 import { Form, Button, Alert, Row, Col, Spinner } from 'react-bootstrap';
-import FlightHubApi from '../../API/api';
+import EventFinderApi from '../../API/api';
 
 const ProfileForm = () => {
   const { user, setUser } = useContext(UserContext);
@@ -59,7 +59,7 @@ const ProfileForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await FlightHubApi.updateUser(user.uuid, formData);
+    const res = await EventFinderApi.updateUser(user.uuid, formData);
     if (res.error) {
       setError(true);
       setErrorMsg(res.error);

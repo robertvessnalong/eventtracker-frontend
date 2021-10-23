@@ -1,4 +1,5 @@
 import { Card, Button, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const PerformerItem = ({ performer }) => {
   return (
@@ -9,11 +10,11 @@ const PerformerItem = ({ performer }) => {
           {performer.name}
         </Card.Title>
         <Col xs={12} md={6}>
-          <a href={performer.url} rel='noreferrer' target='_blank'>
+          <Link to={`/performers/${performer.id}`} rel='noreferrer'>
             <Button className='blue-btn' variant='primary'>
               See Events
             </Button>
-          </a>
+          </Link>
         </Col>
       </Card.ImgOverlay>
     </Card>

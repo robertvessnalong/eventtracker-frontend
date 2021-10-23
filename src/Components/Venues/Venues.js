@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Container,
   Row,
@@ -9,32 +9,30 @@ import {
   Button,
   Alert,
 } from 'react-bootstrap';
-import UserContext from '../../Context/UserContext';
 import EventFinderApi from '../../API/api';
-import EventItem from './EventItem';
+import VenueItem from './VenueItem';
 import uuid from 'react-uuid';
 
-const Events = () => {
+const Venues = () => {
   const formInitalState = {
     search: '',
   };
-  const { user } = useContext(UserContext);
   const [page, setPage] = useState(1);
   const [formData, setFormData] = useState(formInitalState);
-  const [events, setEvents] = useState([]);
+  const [venues, setVenues] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const [errorMsg, setErrorMsg] = useState([]);
-  const [hasEvents, setHasEvents] = useState(false);
+  const [hasVenues, setHasVenues] = useState(false);
 
   useEffect(() => {
-    const getEvents = async () => {
-      const res = await EventFinderApi.getEvents({ page });
-      setEvents(res);
+    const getVenues = async () => {
+      const res = await EventFinderApi.getVenues({ page });
+      setVenues(res);
       setLoading(false);
     };
 
-    getEvents();
+    getVenues();
   }, [page]);
 
   if (loading) {
@@ -59,17 +57,17 @@ const Events = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await EventFinderApi.getEvents(formData);
+    const res = await EventFinderApi.getVenues(formData);
     if (res.error) {
       setError(true);
       setErrorMsg(res.error);
     } else {
-      if (events.length > 0) {
-        setHasEvents(false);
+      if (venues.length > 0) {
+        setHasVenues(false);
         setFormData(formInitalState);
-        setEvents(res);
+        setVenues(res);
       } else {
-        setHasEvents(true);
+        setHasVenues(true);
       }
     }
   };
@@ -86,10 +84,10 @@ const Events = () => {
   };
 
   return (
-    <div className='Events'>
+    <div className='Venues'>
       <header>
-        <h2>Events</h2>
-        <span>Find Events Near You</span>
+        <h2>Venues</h2>
+        <span>Find A Venue Near You</span>
         <hr></hr>
       </header>
       <Container>
@@ -100,7 +98,7 @@ const Events = () => {
               <Col md>
                 <FloatingLabel
                   controlId='floatingInputGrid'
-                  label='Search Events...'
+                  label='Search Venues...'
                 >
                   <Form.Control
                     type='text'
@@ -116,7 +114,7 @@ const Events = () => {
                   className='h-100 w-100 blue-btn'
                   variant='primary'
                 >
-                  Find Events
+                  Find Venue
                 </Button>{' '}
               </Col>
             </Row>
@@ -124,15 +122,15 @@ const Events = () => {
         </div>
       </Container>
       <Container className='Event-Items'>
-        {hasEvents && (
+        {hasVenues && (
           <Alert className='mt-4' variant='warning'>
             Sorry, no events found! Try Again
           </Alert>
         )}
         <Row xs={1} xl={2}>
-          {events.map((event) => (
+          {venues.map((venue) => (
             <Col key={uuid()}>
-              <EventItem event={event} favorites={user.favorites} />
+              <VenueItem venue={venue} />
             </Col>
           ))}
         </Row>
@@ -174,4 +172,4 @@ const Events = () => {
   );
 };
 
-export default Events;
+export default Venues;

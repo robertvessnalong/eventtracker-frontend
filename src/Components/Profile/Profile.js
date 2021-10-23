@@ -2,7 +2,8 @@ import { useContext } from 'react';
 import UserContext from '../../Context/UserContext';
 import { Tabs, Tab, Container } from 'react-bootstrap';
 import ProfileForm from './ProfileForm';
-import Favorites from './Favorites';
+import FavoriteEvent from './FavoriteEvent';
+import FavoritePerformer from './FavoritePerformer';
 
 const Profile = () => {
   const { user } = useContext(UserContext);
@@ -19,8 +20,11 @@ const Profile = () => {
           <Tab eventKey='profile' title='Profile'>
             <ProfileForm />
           </Tab>
-          <Tab eventKey='favorites' title='Favorites'>
-            <Favorites />
+          <Tab eventKey='event' title='Events'>
+            <FavoriteEvent />
+          </Tab>
+          <Tab eventKey='performer' title='Performer'>
+            <FavoritePerformer />
           </Tab>
         </Tabs>
       </Container>

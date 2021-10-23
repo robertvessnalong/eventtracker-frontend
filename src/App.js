@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import FlightHubApi from './API/api';
+import EventFinderApi from './API/api';
 import Routes from './Routes';
 import './App.css';
 import UserContext from './Context/UserContext';
@@ -12,7 +12,7 @@ function App() {
 
   // Login Function
   const login = async (data) => {
-    const res = await FlightHubApi.login(data);
+    const res = await EventFinderApi.login(data);
     if (res.error) {
       return res;
     }
@@ -31,7 +31,7 @@ function App() {
 
   // Sign Up Function
   const signUp = async (data) => {
-    const res = await FlightHubApi.register(data);
+    const res = await EventFinderApi.register(data);
     if (res.error) {
       return res;
     }
@@ -61,8 +61,8 @@ function App() {
       const { token, user } = storage;
       const res =
         token === null
-          ? await FlightHubApi.getUserInfo()
-          : await FlightHubApi.getUserInfo(user, token);
+          ? await EventFinderApi.getUserInfo()
+          : await EventFinderApi.getUserInfo(user, token);
       setUser(res);
       setLoggedIn(true);
     };

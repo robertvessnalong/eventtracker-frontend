@@ -16,6 +16,8 @@ const EventItem = ({ favorites, event }) => {
   const { user, setUser, loggedIn } = useContext(UserContext);
   const formInitalState = {
     eventId: event.id,
+    eventName: event.title,
+    userName: user.firstName,
     comment: '',
     uuid: user['uuid'],
   };
@@ -39,12 +41,13 @@ const EventItem = ({ favorites, event }) => {
   // Handle Favorties
   const handleFavorites = async (e, event) => {
     const eventData = {
+      type: 'event',
       eventId: event.id,
       eventName: event.title,
       eventDate: EventFinderApi.eventTimeConverter(event.datetime_utc),
       eventAddress: event.venue.address,
       eventExtendedAddress: event.venue.extended_address,
-      url: event.url,
+      eventUrl: event.url,
       uuid: user['uuid'],
     };
     const res = e.target.classList.contains('favorited')

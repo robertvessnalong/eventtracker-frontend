@@ -92,6 +92,11 @@ const Performers = () => {
         <hr></hr>
       </header>
       <Container>
+        {hasPerformers && (
+          <Alert className='mt-4' variant='warning'>
+            Sorry, no performers found! Try Again
+          </Alert>
+        )}
         <div className='Search'>
           <Form onSubmit={handleSubmit} className='mt-4'>
             {error && <Alert variant='danger'>{errorMsg}</Alert>}
