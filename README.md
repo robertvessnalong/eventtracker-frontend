@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Event Tracker Front End
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg?style=flat-square)](https://github.com/robertvessnalong/eventtracker-frontend)
 
-## Available Scripts
+This is a front-end application created using Create-React-App, React-Bootstrap, and Axios. All API calls are being handled by [api.js](src/API/api.js).
 
-In the project directory, you can run:
+If you would like to add your own backend, you can replace BASE_URL and modify each route:
 
-### `npm start`
+```
+const BASE_URL = 'https://eventtracker-backend.herokuapp.com';
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- API Calls are being directed to the [Backend](https://github.com/robertvessnalong/eventtracker-backend)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Components data for Events, Performers, and Venues are all being fetched from the SeatGeek API. These components allow for querying, so a user can search for a specific Event, Performer, and Venue.
 
-### `npm test`
+## Table of Contents
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Event Tracker Front End](#event-tracker-front-end)
+  - [Table of Contents](#table-of-contents)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Events](#events)
+  - [Performers](#performers)
+  - [Venues](#venues)
+  - [Social](#social)
+  - [Profile](#profile)
 
-### `npm run build`
+## Install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+npm install
+npm run start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Usage
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The application will function normally without any additional configuration. However, you are more than welcome to use your own backend.
 
-### `npm run eject`
+## Events
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Events Component will render all events using SeatGeek Geoip feature. It will find all events near the current user.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- The Event Page, features Event Items. These items allow you to favorite an event, comment on a event, and link to SeatGeek to purchase tickets.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- You are allowed to Query events using the seach bar at the top of the page. This will remove Geoip and search all events related to search results.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Performers
 
-## Learn More
+- Performer Component will render all performers from SeatGeek. SeatGeek API does not allow for Geoip for this call.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- The Performer Page, features Performer Items. These items will redirect you to the performer page. There you can favorite the performer, and see the performers upcoming events.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- You are allowed to Query events using the seach bar at the top of the page. This will remove Geoip and search all events related to search results.
 
-### Code Splitting
+## Venues
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Venue Component will render all venues using SeatGeek Geopip feature. It will find all events near the current user.
 
-### Analyzing the Bundle Size
+- You are allowed to Query events using the seach bar at the top of the page. This will remove Geoip and search all events related to search results.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Social
 
-### Making a Progressive Web App
+- Social Component will render all comments that each user has made. The Social Item will render the User First Name, The Event Name, The Date Commented, and the Commnet.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Profile
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Profile allows you to see your favorite events, and performers. It will also allow you to change your name, and email. It will not allow password changes at the moment. 
