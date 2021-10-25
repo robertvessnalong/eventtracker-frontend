@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Home Center"
+  >
+    <header
+      class="center-content"
+    >
+      <h2>
+        Events
+      </h2>
+      <span>
+        Find Events Near You
+      </span>
+      <hr />
+    </header>
+    <div
+      class="container"
+    >
+      <div
+        class="Search"
+      >
+        <form
+          class="mt-4"
+        >
+          <div
+            class="g-2 row"
+          >
+            <div
+              class="col-md"
+            >
+              <div
+                class="form-floating"
+              >
+                <input
+                  class="form-control"
+                  id="floatingInputGrid"
+                  name="search"
+                  type="text"
+                  value=""
+                />
+                <label
+                  for="floatingInputGrid"
+                >
+                  Search Events...
+                </label>
+              </div>
+            </div>
+            <div
+              class="col-md-3"
+            >
+              <button
+                class="h-100 w-100 blue-btn btn btn-primary"
+                type="submit"
+              >
+                Find Events
+              </button>
+               
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      class="Event-Items-Home container"
+    >
+      <div
+        class="row row-cols-xl-2 row-cols-1"
+      />
+      <div
+        class="Sign-Up-Btn row"
+      >
+        <div
+          class="col"
+        >
+          <a
+            class="blue-btn"
+            href="/login"
+          >
+            Sign Up To See More
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

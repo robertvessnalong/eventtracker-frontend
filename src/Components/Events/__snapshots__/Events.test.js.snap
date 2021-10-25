@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Events Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Events"
+  >
+    <header>
+      <h2>
+        Events
+      </h2>
+      <span>
+        Find Events Near You
+      </span>
+      <hr />
+    </header>
+    <div
+      class="container"
+    >
+      <div
+        class="Search"
+      >
+        <form
+          class="mt-4"
+        >
+          <div
+            class="g-2 row"
+          >
+            <div
+              class="col-md"
+            >
+              <div
+                class="form-floating"
+              >
+                <input
+                  class="form-control"
+                  id="floatingInputGrid"
+                  name="search"
+                  type="text"
+                  value=""
+                />
+                <label
+                  for="floatingInputGrid"
+                >
+                  Search Events...
+                </label>
+              </div>
+            </div>
+            <div
+              class="col-md-3"
+            >
+              <button
+                class="h-100 w-100 blue-btn btn btn-primary"
+                type="submit"
+              >
+                Find Events
+              </button>
+               
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      class="Event-Items container"
+    >
+      <div
+        class="row row-cols-xl-2 row-cols-1"
+      >
+        <div
+          class="col"
+        >
+          <div
+            class="mt-4 mb-4 p-0 card"
+          >
+            <h6
+              class="card-header"
+            >
+              <div
+                class="row"
+              >
+                <div
+                  class="d-flex align-items-center col-10"
+                >
+                  <small>
+                    The Great Jack OLantern Blaze - Long Island
+                  </small>
+                </div>
+                <div
+                  class="col-2"
+                />
+              </div>
+            </h6>
+            <div
+              class="card-body"
+            >
+              <div
+                class="row"
+              >
+                <div
+                  class="text-start col-md-6 col-12"
+                >
+                  <div
+                    class="card-time"
+                  >
+                    <b>
+                      Sun Oct 24 2021 - 7 AM
+                    </b>
+                  </div>
+                  <address>
+                    1303 Round Swamp Road
+                    <br />
+                    Old Bethpage, NY 11804
+                  </address>
+                </div>
+                <div
+                  class="d-flex align-items-center justify-content-end col-md-6 col-12"
+                >
+                  <a
+                    href="https://seatgeek.com/the-great-jack-olantern-blaze-long-island-tickets/family/2021-10-24-3-30-am/5491086"
+                    rel="noreferrer"
+                    target="_blank"
+                  >
+                    <button
+                      class="blue-btn btn btn-primary"
+                      type="button"
+                    >
+                      Buy Tickets
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div
+              class="text-muted text-start card-footer"
+            >
+              <button>
+                Comment
+              </button>
+              <div
+                class="Comment col-12"
+              >
+                <div
+                  class="container"
+                >
+                  <h6>
+                    Comment On Event
+                  </h6>
+                  <form
+                    class=""
+                  >
+                    <textarea
+                      class="form-control"
+                      name="comment"
+                      placeholder="Leave a comment here"
+                      style="height: 150px;"
+                    />
+                    <button
+                      type="Submit"
+                    >
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mt-5 row"
+      >
+        <div
+          class="col"
+        >
+          <div
+            aria-label="pagination"
+          >
+            <ul
+              class="pagination justify-content-center"
+            >
+              <a
+                aria-disabled="true"
+                aria-label="Previous"
+                class="page-link btn btn-primary disabled"
+                role="button"
+              >
+                <span
+                  aria-hidden="true"
+                  class="page-arrow"
+                >
+                  «
+                </span>
+              </a>
+              <a
+                aria-label="Next"
+                class="page-link btn btn-primary"
+                href="#"
+                role="button"
+                tabindex="0"
+              >
+                <span
+                  aria-hidden="true"
+                  class="page-arrow"
+                >
+                  »
+                </span>
+              </a>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

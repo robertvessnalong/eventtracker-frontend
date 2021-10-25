@@ -1,6 +1,11 @@
 import axios from 'axios';
-
+import TestEvent from '../Testing/TestEvent';
+import TestEvents from '../Testing/TestEvents';
+import TestPerformer from '../Testing/TestPerfomer';
+import TestPerformers from '../Testing/TestPerformers';
 const BASE_URL = 'https://eventtracker-backend.herokuapp.com';
+
+const ENV = process.env.REACT_APP_NODE_ENV;
 
 class EventFinderApi {
   static token;
@@ -67,6 +72,12 @@ class EventFinderApi {
   /** Get Events */
 
   static async getEvents(param = {}) {
+    if (ENV === 'TEST') {
+      if (Object.keys(param).length > 0) {
+        return [TestEvent];
+      }
+      return TestEvents;
+    }
     try {
       let res = await this.request(`events`, param);
       return res;
@@ -79,6 +90,12 @@ class EventFinderApi {
   /** Get Performers */
 
   static async getPerformers(param = {}) {
+    if (ENV === 'TEST') {
+      if (Object.keys(param).length > 0) {
+        return [TestPerformer];
+      }
+      return TestPerformers;
+    }
     try {
       const user = JSON.parse(localStorage.getItem('user'));
       if (user) {

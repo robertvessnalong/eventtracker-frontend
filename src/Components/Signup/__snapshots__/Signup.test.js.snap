@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Events Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Login Center"
+  >
+    <div
+      class="container"
+    >
+      <form
+        class=""
+      >
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            for="firstName"
+          >
+            First Name
+          </label>
+          <input
+            class="form-control"
+            id="firstName"
+            name="firstName"
+            placeholder="First Name"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            for="lastName"
+          >
+            Last Name
+          </label>
+          <input
+            class="form-control"
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            type="text"
+            value=""
+          />
+        </div>
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            for="formBasicEmail"
+          >
+            Email address
+          </label>
+          <input
+            class="form-control"
+            id="formBasicEmail"
+            name="email"
+            placeholder="Enter email"
+            type="email"
+            value=""
+          />
+          <small
+            class="text-muted form-text"
+          >
+            We'll never share your email with anyone else.
+          </small>
+        </div>
+        <div
+          class="mb-3"
+        >
+          <label
+            class="form-label"
+            for="formBasicPassword"
+          >
+            Password
+          </label>
+          <input
+            class="form-control"
+            id="formBasicPassword"
+            name="password"
+            placeholder="Password"
+            type="password"
+            value=""
+          />
+        </div>
+        <button
+          class="blue-btn btn btn-primary"
+          type="submit"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</DocumentFragment>
+`;

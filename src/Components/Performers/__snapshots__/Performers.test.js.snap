@@ -1,0 +1,151 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Events Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="Performers"
+  >
+    <header>
+      <h2>
+        Performers
+      </h2>
+      <span>
+        See Your Favorite Performers Show
+      </span>
+      <hr />
+    </header>
+    <div
+      class="container"
+    >
+      <div
+        class="Search"
+      >
+        <form
+          class="mt-4"
+        >
+          <div
+            class="g-2 row"
+          >
+            <div
+              class="col-md"
+            >
+              <div
+                class="form-floating"
+              >
+                <input
+                  class="form-control"
+                  id="floatingInputGrid"
+                  name="search"
+                  type="text"
+                  value=""
+                />
+                <label
+                  for="floatingInputGrid"
+                >
+                  Search Performers...
+                </label>
+              </div>
+            </div>
+            <div
+              class="col-md-3"
+            >
+              <button
+                class="h-100 w-100 blue-btn btn btn-primary"
+                type="submit"
+              >
+                Find Performer
+              </button>
+               
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div
+      class="row row-cols-xl-3 row-cols-lg-2 row-cols-1"
+    >
+      <div
+        class="col"
+      >
+        <div
+          class="mt-4 mb-4 p-0 text-white card"
+        >
+          <img
+            alt="Card image"
+            class="card-img"
+            src="https://seatgeek.com/images/performers-landscape/billy-joel-82da62/303/huge.jpg"
+          />
+          <div
+            class="center-content card-img-overlay"
+          >
+            <h2
+              class="card-title"
+              style="font-weight: bolder;"
+            >
+              Billy Joel
+            </h2>
+            <div
+              class="col-md-6 col-12"
+            >
+              <a
+                href="/performers/303"
+                rel="noreferrer"
+              >
+                <button
+                  class="blue-btn btn btn-primary"
+                  type="button"
+                >
+                  See Events
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="mt-5 row"
+    >
+      <div
+        class="col"
+      >
+        <div
+          aria-label="pagination"
+        >
+          <ul
+            class="pagination justify-content-center"
+          >
+            <a
+              aria-disabled="true"
+              aria-label="Previous"
+              class="page-link btn btn-primary disabled"
+              role="button"
+            >
+              <span
+                aria-hidden="true"
+                class="page-arrow"
+              >
+                «
+              </span>
+            </a>
+            <a
+              aria-label="Next"
+              class="page-link btn btn-primary"
+              href="#"
+              role="button"
+              tabindex="0"
+            >
+              <span
+                aria-hidden="true"
+                class="page-arrow"
+              >
+                »
+              </span>
+            </a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
