@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Events Component matches snapshot 1`] = `
+exports[`Login Component matches snapshot 1`] = `
 <DocumentFragment>
   <div
     class="Login Center"
@@ -26,6 +26,7 @@ exports[`Events Component matches snapshot 1`] = `
             name="email"
             placeholder="Enter email"
             type="email"
+            value=""
           />
           <small
             class="text-muted form-text"
@@ -48,6 +49,7 @@ exports[`Events Component matches snapshot 1`] = `
             name="password"
             placeholder="Password"
             type="password"
+            value=""
           />
         </div>
         <button

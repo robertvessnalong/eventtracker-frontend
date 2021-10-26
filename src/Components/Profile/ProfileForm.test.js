@@ -1,44 +1,29 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Signup from './Signup';
+import ProfileForm from './ProfileForm';
 import TestUser from '../../Testing/TestUser';
 import UserContext from '../../Context/UserContext';
-import EventFinderApi from '../../API/api';
+import { BrowserRouter } from 'react-router-dom';
 
-// Sign Up Function
-const signUp = async (data) => {
-  const res = await EventFinderApi.register(data);
-  if (res.error) {
-    return res;
-  }
-  localStorage.setItem(
-    'user',
-    JSON.stringify({
-      token: res.token,
-      user: res.user.uuid,
-      firstName: res.user.firstName,
-    })
-  );
-  return { register: 'success' };
-};
-
-describe('Signup Component', () => {
+describe('ProfileForm Component', () => {
   // Smoke Test
   test('renders without crashing', async () => {
     render(
-      <UserContext.Provider value={{ user: TestUser }}>
-        <Signup />
-      </UserContext.Provider>
+      <BrowserRouter>
+        <UserContext.Provider value={{ user: TestUser }}>
+          <ProfileForm />
+        </UserContext.Provider>
+      </BrowserRouter>
     );
 
-    const label = screen.getByLabelText(/Email Address/i);
+    const label = screen.getByPlaceholderText(/First Name/i);
     expect(label).toBeInTheDocument();
   });
 
-  test('signUp', () => {
+  test('update', () => {
     render(
-      <UserContext.Provider value={{ user: TestUser, signUp }}>
-        <Signup />
+      <UserContext.Provider value={{ user: TestUser }}>
+        <ProfileForm />
       </UserContext.Provider>
     );
     fireEvent.change(screen.getByPlaceholderText('First Name'), {
@@ -60,7 +45,7 @@ describe('Signup Component', () => {
   test('matches snapshot', async () => {
     const { asFragment } = render(
       <UserContext.Provider value={{ user: TestUser }}>
-        <Signup />
+        <ProfileForm />
       </UserContext.Provider>
     );
     expect(asFragment()).toMatchSnapshot();

@@ -4,8 +4,6 @@ import {
   fireEvent,
   waitFor,
   waitForElementToBeRemoved,
-  getByPlaceholderText,
-  getByLabelText,
 } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import Events from './Events';

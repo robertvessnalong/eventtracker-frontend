@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Events Component loggedIn snapshot 1`] = `
+exports[`EventItem Component loggedIn snapshot 1`] = `
 <DocumentFragment>
   <div
     class="mt-4 mb-4 p-0 card"
@@ -118,7 +118,7 @@ exports[`Events Component loggedIn snapshot 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Events Component matches snapshot 1`] = `
+exports[`EventItem Component matches snapshot 1`] = `
 <DocumentFragment>
   <div
     class="mt-4 mb-4 p-0 card"

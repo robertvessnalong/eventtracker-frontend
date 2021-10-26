@@ -52,6 +52,7 @@ const Login = () => {
                 placeholder='Enter email'
                 onChange={handleChange}
                 name='email'
+                value={formData.email}
               />
               <Form.Text className='text-muted'>
                 We'll never share your email with anyone else.
@@ -64,6 +65,7 @@ const Login = () => {
                 placeholder='Password'
                 onChange={handleChange}
                 name='password'
+                value={formData.password}
               />
             </Form.Group>
             <Button className='blue-btn' type='submit'>

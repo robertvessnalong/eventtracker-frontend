@@ -3,6 +3,9 @@ import TestEvent from '../Testing/TestEvent';
 import TestEvents from '../Testing/TestEvents';
 import TestPerformer from '../Testing/TestPerfomer';
 import TestPerformers from '../Testing/TestPerformers';
+import TestComment from '../Testing/TestComment';
+import TestVenues from '../Testing/TestVenues';
+import TestVenue from '../Testing/TestVenue';
 const BASE_URL = 'https://eventtracker-backend.herokuapp.com';
 
 const ENV = process.env.REACT_APP_NODE_ENV;
@@ -112,6 +115,9 @@ class EventFinderApi {
   /** Get Performer */
 
   static async getPerformer(param = {}) {
+    if (ENV === 'TEST') {
+      return TestPerformer;
+    }
     try {
       const user = JSON.parse(localStorage.getItem('user'));
       if (user) {
@@ -128,6 +134,12 @@ class EventFinderApi {
   /** Get Venues */
 
   static async getVenues(param = {}) {
+    if (ENV === 'TEST') {
+      if (Object.keys(param).length > 0) {
+        return TestVenue;
+      }
+      return TestVenues;
+    }
     try {
       const user = JSON.parse(localStorage.getItem('user'));
       if (user) {
@@ -180,6 +192,9 @@ class EventFinderApi {
   /** Get Comments */
 
   static async getComments(param = {}) {
+    if (ENV === 'TEST') {
+      return [TestComment];
+    }
     try {
       const user = JSON.parse(localStorage.getItem('user'));
       if (user) {

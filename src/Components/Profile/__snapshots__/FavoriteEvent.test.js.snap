@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorite Performer Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="row"
+  >
+    <div
+      class="col"
+    >
+      <div
+        class="Favorite mb-4 card"
+      >
+        <div
+          class="card-header"
+        >
+          BKFC Fight Night Wichita Rickels Vs Lane
+        </div>
+        <div
+          class="card-body"
+        >
+          <div
+            class="card-text"
+          >
+            <div
+              class="card-time"
+            >
+              <b>
+                Sun Oct 24 2021 - 12 AM
+              </b>
+            </div>
+            8151 N. Hartman Arena Drive
+            <br />
+            Park City, KS 67147
+          </div>
+          <a
+            rel="noreferrer"
+            target="_blank"
+          >
+            <button
+              class="blue-btn btn btn-primary"
+              type="button"
+            >
+              Buy Tickets
+            </button>
+          </a>
+        </div>
+      </div>
+      <div
+        class="Favorite mb-4 card"
+      >
+        <div
+          class="card-header"
+        >
+          Struggle Jennings
+        </div>
+        <div
+          class="card-body"
+        >
+          <div
+            class="card-text"
+          >
+            <div
+              class="card-time"
+            >
+              <b>
+                Sat Oct 30 2021 - 12 AM
+              </b>
+            </div>
+            332 East 1st Street North
+            <br />
+            Wichita, KS 67202
+          </div>
+          <a
+            rel="noreferrer"
+            target="_blank"
+          >
+            <button
+              class="blue-btn btn btn-primary"
+              type="button"
+            >
+              Buy Tickets
+            </button>
+          </a>
+        </div>
+      </div>
+      <div
+        class="Favorite mb-4 card"
+      >
+        <div
+          class="card-header"
+        >
+          Mercyme with Jeremy Camp
+        </div>
+        <div
+          class="card-body"
+        >
+          <div
+            class="card-text"
+          >
+            <div
+              class="card-time"
+            >
+              <b>
+                Sat Oct 30 2021 - 12 AM
+              </b>
+            </div>
+            8151 N. Hartman Arena Drive
+            <br />
+            Park City, KS 67147
+          </div>
+          <a
+            rel="noreferrer"
+            target="_blank"
+          >
+            <button
+              class="blue-btn btn btn-primary"
+              type="button"
+            >
+              Buy Tickets
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

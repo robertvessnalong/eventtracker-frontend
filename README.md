@@ -19,12 +19,13 @@ Components data for Events, Performers, and Venues are all being fetched from th
 - [Event Tracker Front End](#event-tracker-front-end)
   - [Table of Contents](#table-of-contents)
   - [Install](#install)
-  - [Usage](#usage)
-  - [Events](#events)
-  - [Performers](#performers)
-  - [Venues](#venues)
-  - [Social](#social)
-  - [Profile](#profile)
+  - [Testing](#testing)
+  - [How To](#how-to)
+    - [Events](#events)
+    - [Performers](#performers)
+    - [Venues](#venues)
+    - [Social](#social)
+    - [Profile](#profile)
 
 ## Install
 
@@ -33,36 +34,30 @@ npm install
 npm run start
 ```
 
-## Usage
+## Testing
 
-- The application will function normally without any additional configuration. However, you are more than welcome to use your own backend.
+Testing is done with Jest, to run test run command.
 
-## Events
+```
+npm run test
+```
 
-- Events Component will render all events using SeatGeek Geoip feature. It will find all events near the current user.
+This will set the [REACT_APP_NODE_ENV](./.env) to "Testing"
 
-- The Event Page, features Event Items. These items allow you to favorite an event, comment on a event, and link to SeatGeek to purchase tickets.
+## How To
 
-- You are allowed to Query events using the seach bar at the top of the page. This will remove Geoip and search all events related to search results.
-
-## Performers
-
-- Performer Component will render all performers from SeatGeek. SeatGeek API does not allow for Geoip for this call.
-
-- The Performer Page, features Performer Items. These items will redirect you to the performer page. There you can favorite the performer, and see the performers upcoming events.
-
-- You are allowed to Query events using the seach bar at the top of the page. This will remove Geoip and search all events related to search results.
-
-## Venues
-
-- Venue Component will render all venues using SeatGeek Geopip feature. It will find all events near the current user.
-
-- You are allowed to Query events using the seach bar at the top of the page. This will remove Geoip and search all events related to search results.
-
-## Social
-
-- Social Component will render all comments that each user has made. The Social Item will render the User First Name, The Event Name, The Date Commented, and the Commnet.
-
-## Profile
-
-- Profile allows you to see your favorite events, and performers. It will also allow you to change your name, and email. It will not allow password changes at the moment. 
+- Here are a few things that can be accomplished with this application.
+  - On the Homepage, you are able to Signup or Login if you have an exisiting account
+    - A account will allow you to save events, performers, and make comments
+  - Once Registered/Logged In, you will see new links in the sidebar. Each link will take you to the following:
+### Events
+  - The events page will allow you to search for events, and favorite events. The current events shown will be events that are near you. Each event has a "Buy Tickets" button that will take you to a seperate site to make your purchase.
+      - The comment button will allow you to comment on an event. The comments can be seen by clicking the "Social" link in the sidebar.
+### Performers
+  - The performers page will allow you to search for performers, and see all their events. Once you find a Performer, you can click "See Events". This will take you to the Performer Page. This page will show you all performer events.
+### Venues
+  - The venues page will allow you to search for venues.
+### Social
+  - The social page will show you all comments posted by every user.
+### Profile
+  - Profile page will allow you to change account information, see your favorite performers, and see your favorite events.

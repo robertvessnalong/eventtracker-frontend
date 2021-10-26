@@ -4,7 +4,7 @@ import TestUser from '../../Testing/TestUser';
 import TestEvent from '../../Testing/TestEvent';
 import UserContext from '../../Context/UserContext';
 
-describe('Events Component', () => {
+describe('EventItem Component', () => {
   // Smoke Test
   test('renders without crashing', async () => {
     render(

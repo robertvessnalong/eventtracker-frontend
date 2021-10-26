@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Favorite Performer Component matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="row"
+  >
+    <div
+      class="col"
+    >
+      <div
+        class="Favorite mb-4 card"
+      >
+        <div
+          class="d-flex flex-row justify-content-between align-items-center card-body"
+        >
+          <div
+            class="card-text"
+          >
+            College Football Playoff National Championship Game
+          </div>
+          <a
+            class="blue-btn d-inline"
+            href="/performers/12007"
+          >
+            See Events
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
