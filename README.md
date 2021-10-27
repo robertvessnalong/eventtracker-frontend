@@ -44,7 +44,11 @@ Testing is done with Jest, to run test run command.
 npm run test
 ```
 
-This will set the [REACT_APP_NODE_ENV](./.env) to "Testing"
+You will first have to create a .env file in the root directory. Then add.
+
+```
+REACT_APP_NODE_ENV = 'Development'
+```
 
 ## How To
 
